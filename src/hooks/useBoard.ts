@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { Board } from "../Components/Board";
 
-export const useBoard = (boardSize: number) => {
-  const initializeBoard = () => {
+export const useBoard = (startingBoardSize: number) => {
+  const [boardSize, setBoardSize] = useState<number>(startingBoardSize);
+
+  const initializeBoard = (boardSize: number) => {
     const squares = Array(boardSize).fill(null);
     for (let i = 0; i < boardSize; i++) {
       squares[i] = Array(boardSize).fill(null);
@@ -15,7 +17,12 @@ export const useBoard = (boardSize: number) => {
     } as Board;
   };
 
-  const [board, setBoard] = useState<Board>(initializeBoard());
+  const changeBoardSize = (newBoardSize: number) => {
+    setBoardSize(newBoardSize);
+    setBoard(initializeBoard(newBoardSize));
+  };
+
+  const [board, setBoard] = useState<Board>(initializeBoard(boardSize));
 
   const handleClick = (i: number, j: number) => {
     const squares = copySquares(board.squares);
@@ -35,7 +42,7 @@ export const useBoard = (boardSize: number) => {
   };
 
   const reset = () => {
-    setBoard(initializeBoard());
+    setBoard(initializeBoard(boardSize));
   };
 
   const copySquares = (squares: string[][]) => {
@@ -137,5 +144,5 @@ export const useBoard = (boardSize: number) => {
     return [];
   };
 
-  return { board, handleClick, reset };
+  return { board, handleClick, reset, changeBoardSize };
 };

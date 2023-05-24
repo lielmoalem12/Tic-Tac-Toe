@@ -7,9 +7,15 @@ interface SquareProps {
   value: string;
   onClick: () => void;
   isWinningSquare: boolean;
+  boardSize: number;
 }
 
-export const Square = ({ value, onClick, isWinningSquare }: SquareProps) => {
+export const Square = ({
+  value,
+  onClick,
+  isWinningSquare,
+  boardSize,
+}: SquareProps) => {
   return (
     <SquareContainer
       value={value}
@@ -17,6 +23,7 @@ export const Square = ({ value, onClick, isWinningSquare }: SquareProps) => {
       isWinningSquare={isWinningSquare}
       className="square"
       onClick={onClick}
+      boardSize={boardSize}
     >
       {value == "X" ? <X /> : value == "O" ? <O /> : null}
     </SquareContainer>

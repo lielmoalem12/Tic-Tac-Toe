@@ -1,15 +1,8 @@
-// import { useState } from "react";
-
-import { Board } from "./Components/Board";
+import { Homepage } from "./views/HomepageView";
+import "./App.css";
 
 function App() {
-  // const [count, setCount] = useState(0);
-
-  return (
-    <>
-      <Board boardSize={7} />
-    </>
-  );
+  return <Homepage />;
 }
 
 export default App;

@@ -11,6 +11,9 @@ export const BoardContainer = styled.div`
     1fr
   );
   grid-gap: 1px;
+  grid-area: board;
   width: fit-content;
   background-color: #3c3c3c;
+  height: 40vh;
+  aspect-ratio: 1;
 `;

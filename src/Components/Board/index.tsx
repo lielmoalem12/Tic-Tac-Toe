@@ -11,35 +11,28 @@ export interface Board {
 
 interface BoardProps {
   boardSize: number;
+  board: Board;
+  handleClick: (row: number, column: number) => void;
 }
 
-export const Board = ({ boardSize }: BoardProps) => {
-  const { board, handleClick, reset } = useBoard(boardSize);
-
+export const Board = ({ board, handleClick }: BoardProps) => {
   return (
-    <div>
-      <div className="status">
-        {board.winner !== null
-          ? `Winner: ${board.winner}`
-          : `Next player: ${board.xIsNext ? "X" : "O"}`}
-      </div>
-      <button onClick={reset}>Reset</button>
-      <BoardContainer boardSize={board.squares.length}>
-        {board.squares.map((row, rowIndex) =>
-          row.map((square, columnIndex) => (
-            <Square
-              key={rowIndex * board.squares.length + columnIndex}
-              value={square}
-              isWinningSquare={board.winningSquaresIndexes?.some(
-                (winningSquare) =>
-                  winningSquare.row === rowIndex &&
-                  winningSquare.column === columnIndex
-              )}
-              onClick={() => handleClick(rowIndex, columnIndex)}
-            />
-          ))
-        )}
-      </BoardContainer>
-    </div>
+    <BoardContainer boardSize={board.squares.length}>
+      {board.squares.map((row, rowIndex) =>
+        row.map((square, columnIndex) => (
+          <Square
+            key={rowIndex * board.squares.length + columnIndex}
+            value={square}
+            isWinningSquare={board.winningSquaresIndexes?.some(
+              (winningSquare) =>
+                winningSquare.row === rowIndex &&
+                winningSquare.column === columnIndex
+            )}
+            onClick={() => handleClick(rowIndex, columnIndex)}
+            boardSize={board.squares.length}
+          />
+        ))
+      )}
+    </BoardContainer>
   );
 };
