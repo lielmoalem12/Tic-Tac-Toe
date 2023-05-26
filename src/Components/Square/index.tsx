@@ -25,7 +25,13 @@ export const Square = ({
       onClick={onClick}
       boardSize={boardSize}
     >
-      {value == "X" ? <X /> : value == "O" ? <O /> : null}
+      <div>
+        {value == "X" ? (
+          <X />
+        ) : value == "O" ? (
+          <O isWinningSquare={isWinningSquare} />
+        ) : null}
+      </div>
     </SquareContainer>
   );
 };

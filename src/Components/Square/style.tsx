@@ -1,4 +1,5 @@
 import styled, { keyframes } from "styled-components";
+import { colors } from "../../utils/colorPallete";
 
 interface SquareContainerProps {
   isClickable: boolean;
@@ -18,23 +19,29 @@ export const SquareContainer = styled.button<SquareContainerProps>`
   align-items: center;
   border: 1px hidden white;
   box-sizing: border-box;
-  animation: ${({ isWinningSquare }) =>
-      isWinningSquare ? winningAnimation : null}
-    2s ease-in-out forwards;
+  > div {
+    opacity: 0.8;
+    width: 100%;
+    margin: 0;
+    animation: ${({ isWinningSquare }) =>
+        isWinningSquare ? winningAnimation : null}
+      1.5s ease-in-out forwards;
+  }
 `;
 
 const winningAnimation = keyframes`
     0% {
         transform: scale(1);
-        border:.1px solid #004904;
     }
     25% {
-        transform: scale(1.3) rotate(-35deg);
+        transform: scale(.5) rotate(-35deg) ;
+    }
+
+    75% {
+        transform: scale(1.1)  rotate(720deg);
     }
     100% {
-
+        opacity: 1;
         transform: scale(1) rotate(720deg);
-        background: greenyellow;
-        border: .1px solid #004904;
     }
 `;
