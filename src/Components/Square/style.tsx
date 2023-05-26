@@ -25,7 +25,7 @@ export const SquareContainer = styled.button<SquareContainerProps>`
     margin: 0;
     animation: ${({ isWinningSquare }) =>
         isWinningSquare ? winningAnimation : null}
-      1.5s ease-in-out forwards;
+      1.5s ease-in-out 0.4s forwards;
   }
 `;
 

@@ -6,7 +6,11 @@ import { HorizontalScroller, OptionObject } from "../HorizontalScroller";
 import { O } from "../O";
 import { PlayerScore } from "../PlayerScore";
 import { X } from "../X";
-import { GameInfoBoardContainer, NextPlayerContainer } from "./style";
+import {
+  GameInfoBoardContainer,
+  GridLayoutOptions,
+  NextPlayerContainer,
+} from "./style";
 
 interface GameInfoBoardProps {
   reset: () => void;
@@ -31,31 +35,28 @@ export const GameInfoBoard = ({
 }: GameInfoBoardProps) => {
   return (
     <GameInfoBoardContainer>
-      <HorizontalLayout width="95%" height="90%">
+      <GridLayout columns="1fr 1fr 1fr" width="100%" height="100%">
+        {/* <HorizontalLayout width="95%" height="90%"> */}
+        <HorizontalLayout width="100%" gap="1rem">
+          <PlayerScore score={0} player="Player 1" shape="X" />
+          <PlayerScore score={0} player="Player 2" shape="O" />
+        </HorizontalLayout>
         <NextPlayerContainer>
           <p>Next player:</p>
           {nextPlayer === "X" ? <X /> : <O />}
         </NextPlayerContainer>
-        <HorizontalLayout width="35%" gap="3rem">
-          <PlayerScore score={0} player="Player 1" shape="X" />
-          <PlayerScore score={0} player="Player 2" shape="O" />
-        </HorizontalLayout>
 
         <VerticalLayout height="100%">
-          <GridLayout
-            columns="1fr 1fr"
-            rows="1fr 1fr"
-            gap="0.5rem"
-            height="90%"
-          >
+          <GridLayoutOptions>
             <span>Board size:</span>
             <HorizontalScroller onChange={changeBoardSize} options={options} />
 
             <span>Other options:</span>
             <Button text="Reset" onClick={reset} />
-          </GridLayout>
+          </GridLayoutOptions>
         </VerticalLayout>
-      </HorizontalLayout>
+        {/* </HorizontalLayout> */}
+      </GridLayout>
     </GameInfoBoardContainer>
   );
 };

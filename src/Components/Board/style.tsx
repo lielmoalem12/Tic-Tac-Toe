@@ -15,5 +15,6 @@ export const BoardContainer = styled.div`
   width: fit-content;
   background-color: #3c3c3c;
   height: 40vh;
+  max-height: 60vw;
   aspect-ratio: 1;
 `;

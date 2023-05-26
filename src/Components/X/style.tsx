@@ -3,14 +3,18 @@ import { colors } from "../../utils/colorPallete";
 
 const fillAnimation = keyframes`
   0% {
-    width: 0%;
+    /* width: 0%; */
     opacity: 0;
+    transform: scale(0);
+
   }
 
   100% {
     opacity: 1;
-    width: inherit;
-    height: 100%;
+    /* width: inherit; */
+    transform: scale(1);
+
+    /* height: 100%; */
   }
 `;
 
@@ -22,7 +26,7 @@ export const XContainer = styled.div`
   position: relative;
   margin: 0;
 
-  animation: ${fillAnimation} 0.3s ease-in-out forwards;
+  animation: ${fillAnimation} 0.4s ease-in-out forwards;
 
   &::before,
   &::after {

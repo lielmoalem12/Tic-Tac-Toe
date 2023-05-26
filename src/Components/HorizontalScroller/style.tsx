@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { colors } from "../../utils/colorPallete";
 
 interface ScrollerProps {
   selectedIndex: number;
@@ -7,13 +8,14 @@ interface ScrollerProps {
 
 export const Container = styled.div`
   display: flex;
+  gap: 0.5rem;
   align-items: center;
 `;
 
 export const ScrollContainer = styled.div`
   display: flex;
   overflow: hidden;
-  width: 2rem;
+  width: 58px;
   height: 100%;
 `;
 
@@ -30,21 +32,17 @@ export const OptionContainer = styled.div`
   align-items: center;
   justify-content: center;
   text-align: center;
-  width: 2rem;
+  width: 100%;
 `;
 
 interface OptionProps {
   selected: boolean;
 }
 
-export const Option = styled.span<OptionProps>`
-  display: inline-block;
-  margin: 0 5px;
+export const Option = styled.div<OptionProps>`
   cursor: pointer;
   opacity: ${(props) => (props.selected ? "1" : "0")};
-  transition: opacity 0.3s ease;
+  transform: ${(props) => (props.selected ? "scale(1)" : "scale(0)")};
 
-  &:hover {
-    color: blue;
-  }
+  transition: all 0.6s ease;
 `;

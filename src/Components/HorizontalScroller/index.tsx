@@ -70,11 +70,17 @@ export const HorizontalScroller = ({
         >
           {options.map((option) => (
             <OptionContainer key={option.value}>
-              <Option
+              {/* <Option
                 selected={selectedOption.value === option.value}
                 onClick={() => handleOptionClick(option)}
               >
                 {option.label}
+              </Option> */}
+              <Option selected={selectedOption.value === option.value}>
+                <Button
+                  onClick={() => handleOptionClick(option)}
+                  text={option.label}
+                />
               </Option>
             </OptionContainer>
           ))}

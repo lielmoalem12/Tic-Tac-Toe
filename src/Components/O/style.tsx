@@ -37,10 +37,11 @@ export const OContainer = styled.div<OContainerProps>`
   ${({ isWinningSquare }) =>
     isWinningSquare
       ? css`
-          animation: ${winningAnimation} 1.5s ease-in-out forwards;
+          animation: ${fillAnimation} 0.4s linear,
+            ${winningAnimation} 1.5s ease-in-out 0.4s forwards;
         `
       : css`
-          animation: ${fillAnimation} 0.3s linear forwards;
+          animation: ${fillAnimation} 0.4s linear forwards;
         `}
 
   &::before {
