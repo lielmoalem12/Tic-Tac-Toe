@@ -1,5 +1,9 @@
 import { XContainer } from "./style";
 
-export const X = () => {
-  return <XContainer>{/* <h1>X</h1> */}</XContainer>;
+interface XProps {
+  isWinningSquare?: boolean;
+}
+
+export const X = ({ isWinningSquare }: XProps) => {
+  return <XContainer isWinningSquare={isWinningSquare} />;
 };

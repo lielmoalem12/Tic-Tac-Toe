@@ -21,7 +21,7 @@ export const SquareContainer = styled.button<SquareContainerProps>`
   box-sizing: border-box;
   width: 100%;
   > div {
-    opacity: 0.8;
+    opacity: 1;
     width: 90%;
     margin: 0;
     animation: ${({ isWinningSquare }) =>

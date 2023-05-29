@@ -1,13 +1,44 @@
+export const red = {
+  light: "#C1717A",
+  regular: "#c42927",
+  dark: "#a33c2a",
+};
+
+export const green = {
+  light: "#aae2a6",
+  regular: "#85d475",
+  dark: "#349648",
+};
+
+export const blue = {
+  light: "#42c5d1",
+  regular: "#308fb8",
+  dark: "#136588",
+};
+
+export const orange = {
+  light: "#EBA176",
+  regular: "#FA9938",
+  dark: "#FAA107",
+};
+
+export const whiteCream = {
+  light: "#FDF1F3",
+  regular: "#ffeaec",
+  dark: "#FF9C9C",
+};
 export const colors = {
-  background: "#a1e7b3",
-  backgroundShade: "#7bd3a7",
-  header: "#f1a413",
-  button: "#1899d6",
-  buttonShade: "#1cb0f6",
-  OColor: "#0819b8",
-  OWinColor: "#dbb537",
-  XColor: "#ec5802",
-  score: "#f1a413",
-  player: "#296e1479",
-  playerSecondary: "#0503013b",
+  button: blue.regular,
+  buttonShade: blue.light,
+  buttonTextColor: whiteCream.regular,
+  background: green.light,
+  backgroundShade: green.dark,
+  header: blue.dark,
+  OColor: blue.regular,
+  WinningColor: orange.regular,
+  XColor: red.regular,
+  score: blue.dark,
+  player: blue.dark,
+  playerSecondary: blue.regular,
+  playerScoreBackground: green.regular,
 };
