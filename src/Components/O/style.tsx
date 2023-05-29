@@ -16,7 +16,7 @@ const winningAnimation = keyframes`
     0% {
     }
     100% {
-      border-color: ${colors.OWinColor};
+      border-color: ${colors.WinningColor};
     }
 `;
 

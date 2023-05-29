@@ -27,7 +27,7 @@ export const Square = ({
     >
       <div>
         {value == "X" ? (
-          <X />
+          <X isWinningSquare={isWinningSquare} />
         ) : value == "O" ? (
           <O isWinningSquare={isWinningSquare} />
         ) : null}

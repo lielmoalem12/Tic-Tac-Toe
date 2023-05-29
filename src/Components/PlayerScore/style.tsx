@@ -10,7 +10,7 @@ export const Score = styled.span`
 
 export const PlayerScoreContainer = styled.div`
   /* border: 1px solid gray; */
-  background-color: #ff91003c;
+  background-color: ${colors.playerScoreBackground};
   padding: 0.7rem 0.3rem;
   border-radius: 20px;
   width: 100%;

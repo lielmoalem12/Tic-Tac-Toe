@@ -36,7 +36,7 @@ export const useBoard = (startingBoardSize: number) => {
     }
     squares[i][j] = board.xIsNext ? "X" : "O";
     const winningSquaresIndexes = checkWinner(squares);
-    let isDraw;
+    let isDraw: boolean;
 
     if (winningSquaresIndexes.length === 0) {
       isDraw = squares.every((row) =>
@@ -44,6 +44,7 @@ export const useBoard = (startingBoardSize: number) => {
       );
       isDraw && setIsGameOver(true);
     } else {
+      isDraw = false;
       setIsGameOver(true);
       if (squares[i][j] === "X") {
         setPlayer1Score((prev) => prev + 1);
@@ -52,17 +53,24 @@ export const useBoard = (startingBoardSize: number) => {
       }
     }
 
-    setBoard({
+    setBoard((prev) => ({
+      ...prev,
       squares: squares,
-      xIsNext: !board.xIsNext,
+      xIsNext: !prev.xIsNext,
       winner:
         winningSquaresIndexes.length > 0
           ? squares[i][j]
           : isDraw
           ? "tie"
           : null,
-      winningSquaresIndexes: winningSquaresIndexes,
-    });
+    }));
+
+    setTimeout(() => {
+      setBoard((prev) => ({
+        ...prev,
+        winningSquaresIndexes: winningSquaresIndexes,
+      }));
+    }, 100);
   };
 
   const reset = () => {

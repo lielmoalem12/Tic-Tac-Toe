@@ -1,5 +1,5 @@
 import styled, { keyframes } from "styled-components";
-import { colors } from "../../utils/colorPallete";
+import { colors, green } from "../../utils/colorPallete";
 
 interface BoardContainerProps {
   boardSize: number;
@@ -26,8 +26,7 @@ export const BoardContainer = styled.div`
   grid-gap: 2px;
   grid-area: board;
   width: fit-content;
-  /* background-color: #3c3c3c97; */
-  background-color: #154b1342;
+  background-color: ${green.dark};
   height: 40vh;
   max-height: 60vw;
   aspect-ratio: 1;
@@ -37,13 +36,9 @@ export const BoardContainer = styled.div`
   .playAgain {
     display: ${({ isGameOver }) => (isGameOver ? "flex" : "none")};
     position: absolute;
-    /* height: 50vh; */
     max-height: 60vw;
     aspect-ratio: 1;
-    /* background-color: #5e88606d; */
     flex-direction: column;
-    /* text-align: center; */
-
     justify-content: space-evenly;
     align-items: center;
     font-size: 2rem;
@@ -57,7 +52,6 @@ export const BoardContainer = styled.div`
     transform: translate(-50%, -50%);
     height: 120%;
     p {
-      /* background-color: #1e2e1ed4; */
       background-color: ${colors.buttonShade};
       border-radius: 20px;
       padding: 1rem;
@@ -65,28 +59,21 @@ export const BoardContainer = styled.div`
       text-align: center;
       margin: 0;
       color: #ffffffcf;
-      /* color: #ce5252; */
       justify-self: end !important;
       box-shadow: 0 0 5px 1px ${colors.backgroundShade};
     }
     button {
-      /* text-transform: uppercase; */
       font-size: 1.3rem;
       color: white;
     }
   }
 
   @media (max-width: 768px) {
-    box-shadow: #3c3c3c 0px 0px 5px 2px;
+    box-shadow: ${green.dark} 0px 0px 5px 2px;
     .playAgain {
       p {
         font-size: 1.5rem;
       }
     }
-    /* :after {
-      margin-top: 0vh;
-      margin-left: 0vh;
-      height: 100%;
-    } */
   }
 `;

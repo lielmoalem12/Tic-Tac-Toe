@@ -8,7 +8,7 @@ interface SquareContainerProps {
   boardSize: number;
 }
 export const SquareContainer = styled.button<SquareContainerProps>`
-  background: #a1e7b3;
+  background: ${colors.background};
   font-size: 1.5vh;
   max-height: calc(40vh / ${({ boardSize }) => boardSize});
   /* overflow: hidden; */
@@ -21,7 +21,7 @@ export const SquareContainer = styled.button<SquareContainerProps>`
   box-sizing: border-box;
   width: 100%;
   > div {
-    opacity: 0.8;
+    opacity: 1;
     width: 90%;
     margin: 0;
     animation: ${({ isWinningSquare }) =>

@@ -58,26 +58,27 @@ export const GameInfoBoard = ({
             shape={isSwitched ? "X" : "O"}
           />
         </HorizontalLayout>
-        <NextPlayerContainer>
-          {winner ? (
-            <>
-              {winner != "tie" && <span>Winner:</span>}
-              {winner === "X" ? (
+        <NextPlayerContainer isWinner={winner ? true : false}>
+          <div className={winner ? "show" : "hide"}>
+            {winner != "tie" && <span>Winner:</span>}
+            {winner === "X" ? (
+              <div className="shape">
                 <X />
-              ) : winner == "O" ? (
+              </div>
+            ) : winner == "O" ? (
+              <div className="shape">
                 <O />
-              ) : winner == "tie" ? (
-                <span>Draw</span>
-              ) : (
-                ""
-              )}
-            </>
-          ) : (
-            <>
-              <span>Next player:</span>
-              {nextPlayer === "X" ? <X /> : <O />}
-            </>
-          )}
+              </div>
+            ) : winner == "tie" ? (
+              <span>Draw</span>
+            ) : (
+              ""
+            )}
+          </div>
+          <div className={winner ? "hide" : "show"}>
+            <span>Next player:</span>
+            <div className="shape">{nextPlayer === "X" ? <X /> : <O />}</div>
+          </div>
         </NextPlayerContainer>
 
         <VerticalLayout height="100%">
