@@ -1,11 +1,12 @@
 
 body{
     margin: 0;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-family: 'Carattere', cursive;
-    font-family: 'Marck Script', cursive;
-    font-family: 'Playfair Display', serif;
-    font-family: 'Poppins', sans-serif;
+    /* font-family: 'Barlow Condensed', sans-serif; */
+    font-family: 'Oswald';
+    /* font-family: 'Carattere', cursive; */
+    /* font-family: 'Marck Script', cursive; */
+    /* font-family: 'Playfair Display', serif; */
+    /* font-family: 'Poppins', sans-serif; */
     height: 100vh;
     width: 100vw;
     position: fixed;

@@ -18,7 +18,7 @@ export const HomepageLayoutContainer = styled.div`
 export const Title = styled.h1`
   font-size: 3rem;
   text-align: center;
-  color: palevioletred;
+  color: ${colors.header};
   margin: 0;
   margin-top: 1rem;
 

@@ -11,7 +11,7 @@ export const SquareContainer = styled.button<SquareContainerProps>`
   background: #a1e7b3;
   font-size: 1.5vh;
   max-height: calc(40vh / ${({ boardSize }) => boardSize});
-  overflow: hidden;
+  /* overflow: hidden; */
   font-weight: bold;
   aspect-ratio: 1;
   display: flex;
@@ -19,9 +19,10 @@ export const SquareContainer = styled.button<SquareContainerProps>`
   align-items: center;
   border: 1px hidden white;
   box-sizing: border-box;
+  width: 100%;
   > div {
     opacity: 0.8;
-    width: 100%;
+    width: 90%;
     margin: 0;
     animation: ${({ isWinningSquare }) =>
         isWinningSquare ? winningAnimation : null}

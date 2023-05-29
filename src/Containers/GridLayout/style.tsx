@@ -18,8 +18,9 @@ export const GridLayoutContainer = styled.div<IGridLayoutContainerProps>`
     // center the grid items
     justify-items: center;
   align-items: center;
+  place-items: center;
   // center the grid itself
-  justify-content: first baseline;
+  /* justify-content: first baseline; */
   align-content: center;
   span {
     justify-self: start;
@@ -27,6 +28,6 @@ export const GridLayoutContainer = styled.div<IGridLayoutContainerProps>`
   // for mobile view
   @media (max-width: 768px) {
     grid-template-columns: none;
-    gap: 1rem;
+    gap: 2rem;
   }
 `;

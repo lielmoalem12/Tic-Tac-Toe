@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { GridLayout } from "../../Containers/GridLayout";
 import { HorizontalLayout } from "../../Containers/HorizontalLayout";
 import { VerticalLayout } from "../../Containers/VerticalLayout";
@@ -5,6 +6,7 @@ import { Button } from "../Button";
 import { HorizontalScroller, OptionObject } from "../HorizontalScroller";
 import { O } from "../O";
 import { PlayerScore } from "../PlayerScore";
+import { PlayerScoreContainer } from "../PlayerScore/style";
 import { X } from "../X";
 import {
   GameInfoBoardContainer,
@@ -17,6 +19,9 @@ interface GameInfoBoardProps {
   changeBoardSize: (size: number) => void;
   nextPlayer: string;
   boardSize: number;
+  winner?: string | null;
+  player1Score: number;
+  player2Score: number;
 }
 
 const options = [
@@ -31,19 +36,48 @@ export const GameInfoBoard = ({
   reset,
   nextPlayer,
   changeBoardSize,
-  boardSize,
+  winner,
+  player1Score,
+  player2Score,
 }: GameInfoBoardProps) => {
+  const [isSwitched, setIsSwitched] = useState(false);
+
   return (
     <GameInfoBoardContainer>
       <GridLayout columns="1fr 1fr 1fr" width="100%" height="100%">
         {/* <HorizontalLayout width="95%" height="90%"> */}
         <HorizontalLayout width="100%" gap="1rem">
-          <PlayerScore score={0} player="Player 1" shape="X" />
-          <PlayerScore score={0} player="Player 2" shape="O" />
+          <PlayerScore
+            score={player1Score}
+            player="Player 1"
+            shape={isSwitched ? "O" : "X"}
+          />
+          <PlayerScore
+            score={player2Score}
+            player="Player 2"
+            shape={isSwitched ? "X" : "O"}
+          />
         </HorizontalLayout>
         <NextPlayerContainer>
-          <p>Next player:</p>
-          {nextPlayer === "X" ? <X /> : <O />}
+          {winner ? (
+            <>
+              {winner != "tie" && <span>Winner:</span>}
+              {winner === "X" ? (
+                <X />
+              ) : winner == "O" ? (
+                <O />
+              ) : winner == "tie" ? (
+                <span>Draw</span>
+              ) : (
+                ""
+              )}
+            </>
+          ) : (
+            <>
+              <span>Next player:</span>
+              {nextPlayer === "X" ? <X /> : <O />}
+            </>
+          )}
         </NextPlayerContainer>
 
         <VerticalLayout height="100%">
@@ -52,7 +86,16 @@ export const GameInfoBoard = ({
             <HorizontalScroller onChange={changeBoardSize} options={options} />
 
             <span>Other options:</span>
-            <Button text="Reset" onClick={reset} />
+            <HorizontalLayout width="100%" gap="1rem">
+              <Button
+                text="Change sides"
+                onClick={() => {
+                  reset();
+                  setIsSwitched((prev) => !prev);
+                }}
+              />
+              <Button text="Reset" onClick={reset} />
+            </HorizontalLayout>
           </GridLayoutOptions>
         </VerticalLayout>
         {/* </HorizontalLayout> */}

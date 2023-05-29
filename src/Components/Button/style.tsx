@@ -10,16 +10,16 @@ export const ButtonContainer = styled.button`
   color: #ffffff;
   cursor: pointer;
   display: inline-block;
-  font-family: din-round, sans-serif;
+  /* font-family: din-round, sans-serif; */
   /* font-size: 15px; */
-  font-weight: 700;
-  letter-spacing: 0.8px;
+  font-weight: 500;
+  /* letter-spacing: 0.8px; */
   margin: 0;
   outline: none;
   overflow: visible;
   padding: 6px 16px;
   text-align: center;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   touch-action: manipulation;
   transform: translateZ(0);
   transition: filter 0.2s;

@@ -3,6 +3,9 @@ import { Board } from "../Components/Board";
 
 export const useBoard = (startingBoardSize: number) => {
   const [boardSize, setBoardSize] = useState<number>(startingBoardSize);
+  const [player1Score, setPlayer1Score] = useState<number>(0);
+  const [player2Score, setPlayer2Score] = useState<number>(0);
+  const [isGameOver, setIsGameOver] = useState<boolean>(false);
 
   const initializeBoard = (boardSize: number) => {
     const squares = Array(boardSize).fill(null);
@@ -11,7 +14,8 @@ export const useBoard = (startingBoardSize: number) => {
     }
     return {
       squares: squares,
-      xIsNext: true,
+      xIsNext: Math.random() < 0.5,
+      // xIsNext: true,
       winner: null,
       winningSquaresIndexes: [],
     } as Board;
@@ -32,17 +36,38 @@ export const useBoard = (startingBoardSize: number) => {
     }
     squares[i][j] = board.xIsNext ? "X" : "O";
     const winningSquaresIndexes = checkWinner(squares);
+    let isDraw;
+
+    if (winningSquaresIndexes.length === 0) {
+      isDraw = squares.every((row) =>
+        row.every((square: string) => square !== null)
+      );
+      isDraw && setIsGameOver(true);
+    } else {
+      setIsGameOver(true);
+      if (squares[i][j] === "X") {
+        setPlayer1Score((prev) => prev + 1);
+      } else {
+        setPlayer2Score((prev) => prev + 1);
+      }
+    }
 
     setBoard({
       squares: squares,
       xIsNext: !board.xIsNext,
-      winner: winningSquaresIndexes.length > 0 ? squares[i][j] : null,
+      winner:
+        winningSquaresIndexes.length > 0
+          ? squares[i][j]
+          : isDraw
+          ? "tie"
+          : null,
       winningSquaresIndexes: winningSquaresIndexes,
     });
   };
 
   const reset = () => {
     setBoard(initializeBoard(boardSize));
+    setIsGameOver(false);
   };
 
   const copySquares = (squares: string[][]) => {
@@ -144,5 +169,13 @@ export const useBoard = (startingBoardSize: number) => {
     return [];
   };
 
-  return { board, handleClick, reset, changeBoardSize };
+  return {
+    board,
+    player1Score,
+    player2Score,
+    isGameOver,
+    handleClick,
+    reset,
+    changeBoardSize,
+  };
 };

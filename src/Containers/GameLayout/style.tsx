@@ -7,6 +7,7 @@ export const GameLayoutContainer = styled.div`
   grid-template-columns: 3fr 1fr 1fr 1fr 3fr;
   grid-template-areas:
     "gameinfo gameinfo gameinfo gameinfo gameinfo"
+    ". board board board ."
     ". board board board .";
   grid-gap: 3rem;
   align-items: center;
@@ -19,7 +20,7 @@ export const GameLayoutContainer = styled.div`
   width: 90%;
   max-height: 80vh;
   /* border: 1px solid #3c3c3c; */
-  box-shadow: 0 0 10px 5px ${colors.backgroundShade};
+  /* box-shadow: 0 0 10px 5px ${colors.backgroundShade}; */
 
   @media (max-width: 768px) {
     grid-template-rows: 1fr 1fr;

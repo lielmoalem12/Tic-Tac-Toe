@@ -8,12 +8,29 @@ interface GameProps {
 }
 
 export const Game = ({ boardSize }: GameProps) => {
-  const { board, handleClick, reset, changeBoardSize } = useBoard(boardSize);
+  const {
+    board,
+    player1Score,
+    player2Score,
+    isGameOver,
+    handleClick,
+    reset,
+    changeBoardSize,
+  } = useBoard(boardSize);
 
   return (
     <GameLayout>
-      <Board board={board} handleClick={handleClick} boardSize={boardSize} />
+      <Board
+        isGameOver={isGameOver}
+        board={board}
+        handleClick={handleClick}
+        boardSize={boardSize}
+        reset={reset}
+      />
       <GameInfoBoard
+        player1Score={player1Score}
+        player2Score={player2Score}
+        winner={board.winner}
         reset={reset}
         nextPlayer={board.xIsNext ? "X" : "O"}
         changeBoardSize={changeBoardSize}
