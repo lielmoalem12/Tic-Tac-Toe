@@ -3,11 +3,10 @@ import { GridLayout } from "../../Containers/GridLayout";
 import { HorizontalLayout } from "../../Containers/HorizontalLayout";
 import { VerticalLayout } from "../../Containers/VerticalLayout";
 import { Button } from "../Button";
-import { HorizontalScroller, OptionObject } from "../HorizontalScroller";
+import { HorizontalScroller } from "../HorizontalScroller";
 import { O } from "../O";
-import { PlayerScore } from "../PlayerScore";
-import { PlayerScoreContainer } from "../PlayerScore/style";
 import { X } from "../X";
+import { PlayerScore } from "../PlayerScore";
 import {
   GameInfoBoardContainer,
   GridLayoutOptions,

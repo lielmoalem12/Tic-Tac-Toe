@@ -1,5 +1,5 @@
-import styled, { css, keyframes } from "styled-components";
-import { colors, green, red } from "../../utils/colorPallete";
+import styled, { keyframes } from "styled-components";
+import { colors, green } from "../../utils/colorPallete";
 
 export const GameInfoBoardContainer = styled.div`
   grid-area: gameinfo;

@@ -1,4 +1,3 @@
-import React from "react";
 import { X } from "../X";
 import { O } from "../O";
 import { SquareContainer } from "./style";

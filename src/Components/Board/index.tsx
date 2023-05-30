@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import { useBoard } from "../../hooks/useBoard";
 import { Square } from "../Square";
 import { BoardContainer } from "./style";
 import { Button } from "../Button";
