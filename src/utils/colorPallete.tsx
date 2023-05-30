@@ -6,7 +6,7 @@ export const red = {
 
 export const green = {
   light: "#aae2a6",
-  regular: "#7fca70",
+  regular: "#93d386",
   dark: "#349648",
 };
 
